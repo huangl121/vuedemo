@@ -34,3 +34,10 @@ jobs:
     - name: Build              # 第三步，打包代码
       run: npm run build --if-present
 
+#打包镜像推送私有容器镜像服务
+    - name: Build the Docker image
+    run: |
+    docker login -u lisi -p 123456 106.74.154.45:8081
+    docker build -t vuedemox:v1 .
+    docker tag vuedemox 106.74.154.45:8081/vuedemox:v1
+    docker push 106.74.154.45:8081/vuedemox:v1
