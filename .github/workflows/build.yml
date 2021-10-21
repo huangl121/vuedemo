@@ -38,6 +38,7 @@ jobs:
     - name: Build the Docker image
     run: |
     docker login -u lisi -p 123456 106.74.154.45:8081
-    docker build -t vuedemox:v1 ./
+    docker build . --file Dockerfile --tag vuedemox:$(date +%s)
+    #docker build -t vuedemox:v1 .
     docker tag vuedemox:v1 106.74.154.45:8081/vuedemox:v1
     docker push 106.74.154.45:8081/vuedemox:v1
