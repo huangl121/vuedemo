@@ -1,8 +1,7 @@
-FROM nginx
+FROM nginx:latest
 
-COPY ./dist/ /usr/share/nginx/html/
-# 第一步nginx配置文件名称
-COPY ./nginx.conf /etc/nginx/nginx.conf
- 
- 
+COPY dist /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
 EXPOSE 80
